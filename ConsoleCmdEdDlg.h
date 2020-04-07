@@ -5,9 +5,20 @@
 #pragma once
 
 
+////////////////////////////////////////////////////////////
+// Includes
+////////////////////////////////////////////////////////////
+
+#include "ConCmdEdCore.h"
+#include "GridTable.h"
+
+
+////////////////////////////////////////////////////////////
 // CConsoleCmdEdDlg dialog
+////////////////////////////////////////////////////////////
 class CConsoleCmdEdDlg : public CDialogEx
 {
+
 // Construction
 public:
 	CConsoleCmdEdDlg(CWnd* pParent = nullptr);	// standard constructor
@@ -31,4 +42,25 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+	virtual void OnOK();
+
+
+public:	
+	// *** properties ***
+
+	// output control
+	CGridTable m_Grid;
+
+	// *** methods ***
+
+
+	// *** events ***
+	// Grid OPs
+	afx_msg void OnGridClick(NMHDR* pNotifyStruct, LRESULT* pResult);
+	afx_msg void OnGridEndEdit(NMHDR* pNotifyStruct, LRESULT* pResult);
+	
+	// File OPs
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton3();
 };

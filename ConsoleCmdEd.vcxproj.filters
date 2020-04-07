@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\GridRes">
+      <UniqueIdentifier>{39624e9d-3bd1-462d-acbf-bd9eb5fc7780}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleCmdEd.h">
@@ -33,6 +36,36 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GridRes\CellRange.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRes\GridCell.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRes\GridCellBase.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRes\GridCtrl.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRes\GridDropTarget.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRes\InPlaceEdit.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRes\MemDC.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRes\TitleTip.h">
+      <Filter>Source Files\GridRes</Filter>
+    </ClInclude>
+    <ClInclude Include="GridTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConCmdEdCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleCmdEd.cpp">
@@ -42,6 +75,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRes\GridCell.cpp">
+      <Filter>Source Files\GridRes</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRes\GridCellBase.cpp">
+      <Filter>Source Files\GridRes</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRes\GridCtrl.cpp">
+      <Filter>Source Files\GridRes</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRes\GridDropTarget.cpp">
+      <Filter>Source Files\GridRes</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRes\InPlaceEdit.cpp">
+      <Filter>Source Files\GridRes</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRes\TitleTip.cpp">
+      <Filter>Source Files\GridRes</Filter>
+    </ClCompile>
+    <ClCompile Include="GridTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConCmdEdCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -187,16 +187,34 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ConCmdEdCore.h" />
     <ClInclude Include="ConsoleCmdEd.h" />
     <ClInclude Include="ConsoleCmdEdDlg.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GridRes\CellRange.h" />
+    <ClInclude Include="GridRes\GridCell.h" />
+    <ClInclude Include="GridRes\GridCellBase.h" />
+    <ClInclude Include="GridRes\GridCtrl.h" />
+    <ClInclude Include="GridRes\GridDropTarget.h" />
+    <ClInclude Include="GridRes\InPlaceEdit.h" />
+    <ClInclude Include="GridRes\MemDC.h" />
+    <ClInclude Include="GridRes\TitleTip.h" />
+    <ClInclude Include="GridTable.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ConCmdEdCore.cpp" />
     <ClCompile Include="ConsoleCmdEd.cpp" />
     <ClCompile Include="ConsoleCmdEdDlg.cpp" />
+    <ClCompile Include="GridRes\GridCell.cpp" />
+    <ClCompile Include="GridRes\GridCellBase.cpp" />
+    <ClCompile Include="GridRes\GridCtrl.cpp" />
+    <ClCompile Include="GridRes\GridDropTarget.cpp" />
+    <ClCompile Include="GridRes\InPlaceEdit.cpp" />
+    <ClCompile Include="GridRes\TitleTip.cpp" />
+    <ClCompile Include="GridTable.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

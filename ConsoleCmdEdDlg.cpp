@@ -1,7 +1,9 @@
-
 // ConsoleCmdEdDlg.cpp : implementation file
 //
 
+////////////////////////////////////////////////////////////
+// includes
+////////////////////////////////////////////////////////////
 #include "pch.h"
 #include "framework.h"
 #include "ConsoleCmdEd.h"
@@ -12,9 +14,10 @@
 #define new DEBUG_NEW
 #endif
 
-  
-// CAboutDlg dialog used for App About
 
+//////////////////////////////////////////////////////////// 
+// CAboutDlg dialog used for App About
+////////////////////////////////////////////////////////////
 class CAboutDlg : public CDialogEx
 {
 public:
@@ -46,30 +49,43 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
+////////////////////////////////////////////////////////////
 // CConsoleCmdEdDlg dialog
-
-
-
+////////////////////////////////////////////////////////////
 CConsoleCmdEdDlg::CConsoleCmdEdDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_CONSOLECMDED_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
+
 void CConsoleCmdEdDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_GRID, m_Grid);
 }
+
 
 BEGIN_MESSAGE_MAP(CConsoleCmdEdDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+
+	// Grid event functions
+	ON_NOTIFY(NM_CLICK, IDC_GRID, &CConsoleCmdEdDlg::OnGridClick)
+	ON_NOTIFY(GVN_ENDLABELEDIT, IDC_GRID, &CConsoleCmdEdDlg::OnGridEndEdit)
+
+
+	ON_BN_CLICKED(IDC_BUTTON1, &CConsoleCmdEdDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CConsoleCmdEdDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CConsoleCmdEdDlg::OnBnClickedButton3)
+//	ON_WM_NOTIFYFORMAT()
 END_MESSAGE_MAP()
 
 
+////////////////////////////////////////////////////////////
 // CConsoleCmdEdDlg message handlers
-
+////////////////////////////////////////////////////////////
 BOOL CConsoleCmdEdDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
@@ -151,5 +167,45 @@ void CConsoleCmdEdDlg::OnPaint()
 HCURSOR CConsoleCmdEdDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
+}
+
+
+void CConsoleCmdEdDlg::OnOK()
+{
+	// disable auto-exit on ENTER key
+
+	// CDialogEx::OnOK();
+}
+
+
+// *** Grid OPs ***
+void CConsoleCmdEdDlg::OnGridClick(NMHDR* pNotifyStruct, LRESULT* pResult)
+{
+
+}
+
+
+void CConsoleCmdEdDlg::OnGridEndEdit(NMHDR* pNotifyStruct, LRESULT* pResult)
+{
+
+}
+
+// *** File OPs ***
+// new
+void CConsoleCmdEdDlg::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
+}
+
+// load
+void CConsoleCmdEdDlg::OnBnClickedButton2()
+{
+	// TODO: Add your control notification handler code here
+}
+
+// save
+void CConsoleCmdEdDlg::OnBnClickedButton3()
+{
+	// TODO: Add your control notification handler code here
 }
 
