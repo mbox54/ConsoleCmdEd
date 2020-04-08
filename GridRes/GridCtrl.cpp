@@ -2,7 +2,8 @@
 //
 // MFC Grid Control v2.26
 
-#include "stdafx.h"
+//#include "stdafx.h"
+#include "pch.h"
 #include "MemDC.h"
 #include "GridCtrl.h"
 #include <algorithm>

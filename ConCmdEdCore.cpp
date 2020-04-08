@@ -78,7 +78,7 @@ BYTE CConCmdEdCore::InsertCmd(st_ConsoleCmd stCmd, WORD usIndex)
 
 	// proc
 	std::vector<st_ConsoleCmd>::iterator itCmdIndex;
-	itCmdIndex = v_commands.begin + usIndex;
+	itCmdIndex = v_commands.begin() + usIndex;
 	v_commands.insert(itCmdIndex, stCmd);
 
 	// edit cmd count
@@ -107,7 +107,7 @@ BYTE CConCmdEdCore::EraseCmd(WORD usIndex)
 
 	// proc
 	std::vector<st_ConsoleCmd>::iterator itCmdIndex;
-	itCmdIndex = v_commands.begin + usIndex;
+	itCmdIndex = v_commands.begin() + usIndex;
 	v_commands.erase(itCmdIndex);
 
 	// edit cmd count
@@ -119,7 +119,19 @@ BYTE CConCmdEdCore::EraseCmd(WORD usIndex)
 
 BYTE CConCmdEdCore::Swap(WORD usIndexA, WORD usIndexB)
 {
+	// check requirements
+	if ((usIndexA >= v_commands.capacity()) || (usIndexB >= v_commands.capacity()))
+	{
+		// [BAD INDEX]
 
+		return 1;
+	}
+
+	// proc
+	st_ConsoleCmd stCmdBuf;
+	stCmdBuf = v_commands[usIndexA];
+	v_commands[usIndexA] = v_commands[usIndexB];
+	v_commands[usIndexB] = stCmdBuf;
 
 	return 0;
 }

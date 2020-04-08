@@ -16,6 +16,26 @@
 
 
 //////////////////////////////////////////////////////////// 
+// Custom support dialogs
+////////////////////////////////////////////////////////////
+
+// dialog to set text parameter
+void Dlg_SetParam(void)
+{
+	HINSTANCE hInst = AfxGetInstanceHandle();
+
+	HWND hDlg = CreateDialog(hInst, MAKEINTRESOURCE(IDD_DIALOG_SETPARAMETER), 0, (DLGPROC)Dlg_SetParamProc);
+	ShowWindow(hDlg, SW_SHOW);
+}
+
+
+BOOL CALLBACK Dlg_SetParamProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////// 
 // CAboutDlg dialog used for App About
 ////////////////////////////////////////////////////////////
 class CAboutDlg : public CDialogEx
@@ -174,9 +194,8 @@ void CConsoleCmdEdDlg::OnOK()
 {
 	// disable auto-exit on ENTER key
 
-	// CDialogEx::OnOK();
+	 CDialogEx::OnOK();
 }
-
 
 // *** Grid OPs ***
 void CConsoleCmdEdDlg::OnGridClick(NMHDR* pNotifyStruct, LRESULT* pResult)
@@ -208,4 +227,5 @@ void CConsoleCmdEdDlg::OnBnClickedButton3()
 {
 	// TODO: Add your control notification handler code here
 }
+
 
