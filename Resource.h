@@ -7,7 +7,6 @@
 #define IDS_ABOUTBOX                    101
 #define IDD_CONSOLECMDED_DIALOG         102
 #define IDR_MAINFRAME                   128
-#define IDD_DIALOG1                     130
 #define IDD_DIALOG_SETPARAMETER         130
 #define IDC_GRID                        1000
 #define IDC_BUTTON1                     1001
@@ -15,6 +14,7 @@
 #define IDC_EDIT_VALUE                  1002
 #define IDC_BUTTON3                     1003
 #define IDC_STATIC_TEXT                 1003
+#define IDC_STATIC_LABEL                1003
 
 // Next default values for new objects
 // 

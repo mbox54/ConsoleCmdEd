@@ -18,9 +18,16 @@
 ////////////////////////////////////////////////////////////
 
 // dialog to set text parameter
-void Dlg_SetParam(void);
+char*  Dlg_SetParam(char* strLabelText);
 BOOL CALLBACK Dlg_SetParamProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam);
 
+struct st_DlgSetParamMemory
+{
+	char strTextValue[32];
+	char strLabelText[64];
+
+	BYTE bResult;
+};
 
 
 ////////////////////////////////////////////////////////////

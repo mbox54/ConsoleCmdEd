@@ -20,18 +20,70 @@
 ////////////////////////////////////////////////////////////
 
 // dialog to set text parameter
-void Dlg_SetParam(void)
-{
-	HINSTANCE hInst = AfxGetInstanceHandle();
+struct st_DlgSetParamMemory m_stDlgSetParamMemory;
 
-	HWND hDlg = CreateDialog(hInst, MAKEINTRESOURCE(IDD_DIALOG_SETPARAMETER), 0, (DLGPROC)Dlg_SetParamProc);
+char* Dlg_SetParam(char* strLabelText)
+{
+	// define dialog config
+	m_stDlgSetParamMemory.bResult = 1;
+	memcpy(m_stDlgSetParamMemory.strLabelText, strLabelText, 64);
+
+	HWND hDlg = CreateDialog(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDD_DIALOG_SETPARAMETER), 0, (DLGPROC)Dlg_SetParamProc);
 	ShowWindow(hDlg, SW_SHOW);
+
+	// wait
+	//while (m_stDlgSetParamMemory.bResult) {} 
+
+	if (m_stDlgSetParamMemory.bResult == 0)
+	{
+		// [VALID]
+
+		return m_stDlgSetParamMemory.strTextValue;
+	}
+	else
+	{
+		return "";
+	}
 }
 
 
 BOOL CALLBACK Dlg_SetParamProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	return 0;
+	switch (message)
+	{
+	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case WM_INITDIALOG:
+			SetDlgItemText(hwndDlg, IDC_STATIC_LABEL, m_stDlgSetParamMemory.strLabelText);
+
+
+			return TRUE;
+
+		case IDOK:
+			
+			GetDlgItemText(hwndDlg, IDC_EDIT_VALUE, m_stDlgSetParamMemory.strTextValue, 32);
+			DestroyWindow(hwndDlg);
+
+			// set value
+			m_stDlgSetParamMemory.bResult = 0;
+
+			return TRUE;
+
+
+		case IDCANCEL:
+			DestroyWindow(hwndDlg);
+			
+			// abort
+			m_stDlgSetParamMemory.bResult = 2;
+
+			return TRUE;
+
+			
+		}
+	}
+
+	return FALSE;
 }
 
 
@@ -194,7 +246,7 @@ void CConsoleCmdEdDlg::OnOK()
 {
 	// disable auto-exit on ENTER key
 
-	 CDialogEx::OnOK();
+//	 CDialogEx::OnOK();
 }
 
 // *** Grid OPs ***
@@ -225,7 +277,8 @@ void CConsoleCmdEdDlg::OnBnClickedButton2()
 // save
 void CConsoleCmdEdDlg::OnBnClickedButton3()
 {
-	// TODO: Add your control notification handler code here
+	char strFilename[32];
+	memcpy(strFilename, Dlg_SetParam("Set file name"), 32);
 }
 
 
