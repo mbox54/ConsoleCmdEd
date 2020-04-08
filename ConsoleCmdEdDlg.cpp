@@ -28,20 +28,35 @@ char* Dlg_SetParam(char* strLabelText)
 	m_stDlgSetParamMemory.bResult = 1;
 	memcpy(m_stDlgSetParamMemory.strLabelText, strLabelText, 64);
 
-	HWND hDlg = CreateDialog(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDD_DIALOG_SETPARAMETER), 0, (DLGPROC)Dlg_SetParamProc);
-	ShowWindow(hDlg, SW_SHOW);
+	// NOTE:
+	// -use to Show: CreateDialog
+	//	HWND hDlg = CreateDialog(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDD_DIALOG_SETPARAMETER), 0, (DLGPROC)Dlg_SetParamProc);
+	//	ShowWindow(hDlg, SW_SHOW);
+	// -use to ShowModal: DialogBoxA
+	//	HWND hWnd = (HWND)AfxGetMainWnd();
+	//	DialogBoxA(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDD_DIALOG_SETPARAMETER), 0, (DLGPROC)Dlg_SetParamProc);
 
-	// wait
-	//while (m_stDlgSetParamMemory.bResult) {} 
+	// Show Modal
+	HWND hWnd = (HWND)AfxGetMainWnd();
+	DialogBoxA(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDD_DIALOG_SETPARAMETER), 0, (DLGPROC)Dlg_SetParamProc);
 
+	// check Result
 	if (m_stDlgSetParamMemory.bResult == 0)
 	{
 		// [VALID]
 
 		return m_stDlgSetParamMemory.strTextValue;
 	}
-	else
+	else if (m_stDlgSetParamMemory.bResult == 1)
 	{
+		// [ABORT]
+
+		return "";
+	}
+	else if (m_stDlgSetParamMemory.bResult == 2)
+	{
+		// [BAD PARAM]
+
 		return "";
 	}
 }
@@ -279,6 +294,7 @@ void CConsoleCmdEdDlg::OnBnClickedButton3()
 {
 	char strFilename[32];
 	memcpy(strFilename, Dlg_SetParam("Set file name"), 32);
+
 }
 
 
